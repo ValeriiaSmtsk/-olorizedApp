@@ -22,34 +22,30 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         resultColorView.layer.cornerRadius = 20
-        
-        redColorAction()
-        greenColorAction()
-        blueColorAction()
     }
 
     @IBAction func redColorAction() {
-        redSlider.minimumValue = 0.00
-        redSlider.maximumValue = 1
-        redSlider.minimumTrackTintColor = .red
         redValueLabel.text = String(format: "%.2f", redSlider.value)
     }
     
     @IBAction func greenColorAction() {
-        greenSlider.minimumValue = 0.00
-        greenSlider.maximumValue = 1
-        greenSlider.minimumTrackTintColor = .green
         greenValueLabel.text = String(format: "%.2f", greenSlider.value)
     }
     
     @IBAction func blueColorAction() {
-        blueSlider.minimumValue = 0.00
-        blueSlider.maximumValue = 1
-        blueSlider.minimumTrackTintColor = .blue
         blueValueLabel.text = String(format: "%.2f", blueSlider.value)
     }
     
-    
-    
+    @IBAction func createNewColorView() {
+        let red = CGFloat(redSlider.value)
+        let green = CGFloat(greenSlider.value)
+        let blue = CGFloat(blueSlider.value)
+        resultColorView.backgroundColor = UIColor(
+            red: red,
+            green: green,
+            blue: blue,
+            alpha: 1
+        )
+    }
 }
 
