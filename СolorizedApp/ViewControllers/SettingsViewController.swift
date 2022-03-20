@@ -33,10 +33,6 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         resultColorView.layer.cornerRadius = 20
         
-//        addDoneButtonOnToolbar(for: redTextField)
-//        addDoneButtonOnToolbar(for: greenTextField)
-//        addDoneButtonOnToolbar(for: blueTextField)
-        
         getColor(from: backgroundColor)
         createColor()
         
@@ -66,7 +62,7 @@ class SettingsViewController: UIViewController {
         dismiss(animated: true)
         delegate.setColor(color: backgroundColor)
     }
-  
+    
     // MARK: - Private Methods
     private func setValueLabelAndTF(for labels: UILabel..., and textFields: UITextField...) {
         zip(labels, textFields).forEach { label, textField in
@@ -96,7 +92,6 @@ class SettingsViewController: UIViewController {
     }
     
     private func getColor(from color: UIColor) {
-        
         var red: CGFloat = 0
         var green: CGFloat = 0
         var blue: CGFloat = 0
@@ -113,83 +108,3 @@ class SettingsViewController: UIViewController {
         String(format: "%.2f", slider.value)
     }
 }
-
-
-
-
-//// MARK: - Keyboard
-//extension SettingsViewController: UITextFieldDelegate {
-//
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        super.touchesBegan(touches, with: event)
-//        view.endEditing(true)
-//    }
-//
-//    private func textFieldDidEndEditing(_ textFields: UITextField...) {
-//        textFields.forEach { textField in
-//            guard let text = textField.text, let value = Float(text) else {
-//                showAlert(title: "dd", message: "mm")
-//                return
-//            }
-//
-//            if value < 0 && value > 1 {
-//                showAlert(title: "dd", message: "mm")
-//            }
-//
-//        switch textField {
-//            case redTextField:
-//                redSlider.setValue(value, animated: true)
-//                redTextField.text = string(from: redSlider)
-//            case greenTextField:
-//                greenSlider.setValue(value, animated: true)
-//                greenTextField.text = string(from: greenSlider)
-//            default:
-//                blueSlider.setValue(value, animated: true)
-//                blueTextField.text = string(from: greenSlider)
-//
-//            }
-//           createColor()
-//        }
-//    }
-//
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        return true
-//    }
-//}
-//
-//// MARK: - Done button keyboard
-//extension SettingsViewController {
-//    func addDoneButtonOnToolbar(for textField: UITextField) {
-//        let toolbar = UIToolbar()
-//        toolbar.sizeToFit()
-//        let flexibleSpase = UIBarButtonItem(
-//            barButtonSystemItem: .flexibleSpace,
-//            target: nil,
-//            action: nil
-//        )
-//        let doneButton = UIBarButtonItem(
-//            barButtonSystemItem: .done,
-//            target: self,
-//            action: #selector(doneKeyboardButtonPressed)
-//        )
-//        toolbar.items = [flexibleSpase, doneButton]
-//        textField.inputAccessoryView = toolbar
-//    }
-//
-//    @objc private func doneKeyboardButtonPressed() {
-//        view.endEditing(true)
-//    }
-//}
-//
-//// MARK: - Alert
-//extension SettingsViewController {
-//    private func showAlert(title: String, message: String, textField: UITextField? = nil) {
-//        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-//        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-//            textField?.text = ""
-//        }
-//        alert.addAction(okAction)
-//        present(alert, animated: true)
-//    }
-//}
