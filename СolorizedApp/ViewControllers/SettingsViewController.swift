@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet var greenTextField: UITextField!
     @IBOutlet var blueTextField: UITextField!
     
-    // MARK: - Public Propertis
+    // MARK: - Public Properties
     var delegate: SettingsViewControllerDelegate!
     var backgroundColor: UIColor!
     
